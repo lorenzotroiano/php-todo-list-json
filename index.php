@@ -10,17 +10,8 @@
     header('Content-Type: application/json');
 
 
-    $skills = [
-        ["name" => "PHP"],
-        ["name" => "Laravel"],
-        ["name" => "CSS"],
-        ["name" => "Java"],
-        ["name" => "Responsive"],
-        ["name" => "HTML"],
-
-    ];
-
-    echo json_encode($skills);
+    $skillsStr = file_get_contents("data.json");
+    echo $skillsStr;
 
     ?>
 
