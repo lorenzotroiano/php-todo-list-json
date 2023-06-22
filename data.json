@@ -1,1 +1,28 @@
-[{"name":"PHP"},{"name":"Laravel"},{"name":"CSS"},{"name":"Java"},{"name":"Responsive"},{"name":"HTML"},{"name":"ciao"},{"name":"bye"},[]]
+[
+    {
+        "name": "PHP",
+        "compiuta": true
+    },
+    {
+        "name": "Laravel"
+    },
+    {
+        "name": "CSS"
+    },
+    {
+        "name": "Java"
+    },
+    {
+        "name": "Responsive"
+    },
+    {
+        "name": "HTML"
+    },
+    {
+        "name": "ciao"
+    },
+    {
+        "name": "bye"
+    },
+    []
+]

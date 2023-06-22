@@ -42,7 +42,7 @@ export default {
     <h1>Hello Student</h1>
 
     <ul>
-      <li v-for="(skill, index) in skills" key="index">
+      <li v-for="(skill, index) in skills" key="index" :class="skill.compiuta ? 'barra' : ''">
         {{ skill.name }}
       </li>
     </ul>
@@ -75,5 +75,10 @@ li {
   font-size: 20px;
   list-style: none;
 
+
+}
+
+.barra {
+  text-decoration: line-through;
 }
 </style>
