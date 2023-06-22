@@ -18,10 +18,10 @@ export default {
       const url = 'http://localhost:8888/php-todo-list-json/postSkill.php';
       const data = this.newSkill;
       const headers = {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'multipart/form-data' }
       };
       axios.post(url, data, headers)
-        .then(response => console.log("response", response.data))
+        .then(response => this.skills = response.data)
         .catch(error => console.log("error", error));
     }
   },

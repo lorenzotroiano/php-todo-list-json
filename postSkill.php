@@ -9,9 +9,20 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 //convertire file php in un file json
 header('Content-Type: application/json');
 
+$file = "data.json";
 
-$data = $_POST;
-echo json_encode($data);
+$newSkill = $_POST;
+$dataStr = file_get_contents($file);
+$data = json_decode($dataStr);
+$data[] = $newSkill;
+
+$encData = json_encode($data);
+file_put_contents($file, $encData);
+
+
+echo $encData;
+
+
 
 // file_put_contents("test.json", $encData);
 
