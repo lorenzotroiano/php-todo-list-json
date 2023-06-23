@@ -46,6 +46,12 @@ export default {
           const data = res.data;
           this.skills = data;
         });
+    },
+    barra(index) {
+
+      this.skills[index].compiuta = true;
+
+
     }
 
 
@@ -70,9 +76,9 @@ export default {
     <h1>Hello Student</h1>
 
     <ul>
-      <li v-for="(skill, i) in skills" :key="i" :class="!skill.compiuta ? 'barra' : ''">
+      <li v-for="(skill, i) in skills" @click.stop="barra(i)" :key="i" :class="skill.compiuta !== 'false' ? 'barra' : ''">
         {{ skill.name }}
-        <button @click="deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
+        <button @click.stop="deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
           font-size: 22px; ">X</button>
       </li>
     </ul>
