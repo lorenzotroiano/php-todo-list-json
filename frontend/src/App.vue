@@ -76,7 +76,8 @@ export default {
     <h1>Hello Student</h1>
 
     <ul>
-      <li v-for="(skill, i) in  skills " :key="i" @click.stop="eseguitaTask(i)" :class="{ 'active': skill.done }">
+      <li v-for="(skill, i) in  skills " :key="i" @click.stop="eseguitaTask(i)"
+        :class="skill.done === true ? 'active' : ''">
         {{ skill.name }}
         <button @click=" deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
           font-size: 22px; ">X</button>
