@@ -9,6 +9,7 @@ export default {
 
       newSkill: {
         name: "",
+        compiuta: false,
       },
     }
   },
@@ -47,7 +48,9 @@ export default {
         });
     }
 
+
   },
+
   mounted() {
     axios.get('http://localhost:8888/php-todo-list-json/index.php')
       .then(result => {
@@ -58,6 +61,8 @@ export default {
 
 
 
+
+
 </script>
 
 <template>
@@ -65,7 +70,7 @@ export default {
     <h1>Hello Student</h1>
 
     <ul>
-      <li v-for="(skill, i) in skills" :key="i" :class="skill.compiuta ? 'barra' : ''">
+      <li v-for="(skill, i) in skills" :key="i" :class="!skill.compiuta ? 'barra' : ''">
         {{ skill.name }}
         <button @click="deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
           font-size: 22px; ">X</button>
