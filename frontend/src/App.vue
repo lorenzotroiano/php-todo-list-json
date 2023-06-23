@@ -9,7 +9,7 @@ export default {
 
       newSkill: {
         name: "",
-        compiuta: false,
+        done: false,
       },
     }
   },
@@ -47,9 +47,9 @@ export default {
           this.skills = data;
         });
     },
-    barra(index) {
+    eseguitaTask(index) {
 
-      this.skills[index].compiuta = true;
+      this.skills[index].done = !this.skills[index].done;
 
 
     }
@@ -76,9 +76,9 @@ export default {
     <h1>Hello Student</h1>
 
     <ul>
-      <li v-for="(skill, i) in skills" @click.stop="barra(i)" :key="i" :class="skill.compiuta !== 'false' ? 'barra' : ''">
+      <li v-for="(skill, i) in  skills " :key="i" @click.stop="eseguitaTask(i)" :class="{ 'active': skill.done }">
         {{ skill.name }}
-        <button @click.stop="deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
+        <button @click=" deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
           font-size: 22px; ">X</button>
       </li>
     </ul>
@@ -114,7 +114,7 @@ li {
 
 }
 
-.barra {
+.active {
   text-decoration: line-through;
 }
 </style>
