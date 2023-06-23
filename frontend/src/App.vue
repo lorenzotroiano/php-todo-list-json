@@ -21,9 +21,32 @@ export default {
         headers: { 'Content-Type': 'multipart/form-data' }
       };
       axios.post(url, data, headers)
-        .then(response => this.skills = response.data)
+        .then(response => {
+          const data = response.data;
+          this.skills = data;
+          this.newSkill.name = "";
+
+        })
         .catch(error => console.log("error", error));
+
+
+    },
+    deleteSkill(index) {
+
+      const url = 'http://localhost:8888/php-todo-list-json/deleteSkill.php';
+      const data = { "index": index };
+      const headers = {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      };
+
+      axios.post(url, data, headers)
+        .then(res => {
+
+          const data = res.data;
+          this.skills = data;
+        });
     }
+
   },
   mounted() {
     axios.get('http://localhost:8888/php-todo-list-json/index.php')
@@ -42,8 +65,10 @@ export default {
     <h1>Hello Student</h1>
 
     <ul>
-      <li v-for="(skill, index) in skills" key="index" :class="skill.compiuta ? 'barra' : ''">
+      <li v-for="(skill, i) in skills" :key="i" :class="skill.compiuta ? 'barra' : ''">
         {{ skill.name }}
+        <button @click="deleteSkill(i)" style=" color: red; background-color: transparent; border: 0px; padding: 10px;
+          font-size: 22px; ">X</button>
       </li>
     </ul>
 
